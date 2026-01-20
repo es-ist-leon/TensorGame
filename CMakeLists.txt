@@ -27,7 +27,12 @@ set(SOURCES
     src/lessons/Lesson2_Creation.cpp
     src/lessons/Lesson3_Operations.cpp
     src/lessons/Lesson4_Database.cpp
+    src/lessons/Lesson5_Broadcasting.cpp
+    src/lessons/Lesson6_NeuralNetworks.cpp
     src/sandbox/Sandbox.cpp
+    src/quiz/Quiz.cpp
+    src/progress/Achievements.cpp
+    src/editor/CodeEditor.cpp
 )
 
 # Header files
@@ -41,6 +46,9 @@ set(HEADERS
     src/lessons/LessonManager.hpp
     src/lessons/Lesson.hpp
     src/sandbox/Sandbox.hpp
+    src/quiz/Quiz.hpp
+    src/progress/Achievements.hpp
+    src/editor/CodeEditor.hpp
 )
 
 # Create executable

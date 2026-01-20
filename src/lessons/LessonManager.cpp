@@ -9,6 +9,8 @@ LessonManager::LessonManager() {
     lessons_.push_back(std::make_unique<Lesson2_Creation>());
     lessons_.push_back(std::make_unique<Lesson3_Operations>());
     lessons_.push_back(std::make_unique<Lesson4_Database>());
+    lessons_.push_back(std::make_unique<Lesson5_Broadcasting>());
+    lessons_.push_back(std::make_unique<Lesson6_NeuralNetworks>());
 
     // Fortschritt initialisieren
     progress_.resize(lessons_.size());
@@ -62,29 +64,23 @@ void LessonManager::renderLessonSelection() {
     int titleWidth = MeasureText(title, 32);
     DrawText(title, (screenWidth - titleWidth) / 2, 90, 32, gui::Colors::TEXT_HIGHLIGHT);
 
-    // Lektionskarten
-    float cardWidth = 350;
-    float cardHeight = 200;
-    float spacing = 30;
-    float totalWidth = lessons_.size() * cardWidth + (lessons_.size() - 1) * spacing;
-    float startX = (screenWidth - totalWidth) / 2;
-    float startY = 180;
+    // Lektionskarten - 3 pro Zeile für 6 Lektionen
+    float cardWidth = 320;
+    float cardHeight = 180;
+    float spacingX = 25;
+    float spacingY = 20;
+    int cardsPerRow = 3;
 
-    // Wenn zu viele Lektionen, in Zeilen anordnen
-    int cardsPerRow = 2;
-    if (lessons_.size() > 4) cardsPerRow = 3;
+    float totalRowWidth = cardsPerRow * cardWidth + (cardsPerRow - 1) * spacingX;
+    float startX = (screenWidth - totalRowWidth) / 2;
+    float startY = 150;
 
     for (size_t i = 0; i < lessons_.size(); ++i) {
         int row = static_cast<int>(i) / cardsPerRow;
         int col = static_cast<int>(i) % cardsPerRow;
 
-        float x = startX + col * (cardWidth + spacing);
-        float y = startY + row * (cardHeight + spacing);
-
-        // Zentrierung für 2x2 Grid
-        if (lessons_.size() == 4) {
-            x = (screenWidth - 2 * cardWidth - spacing) / 2 + col * (cardWidth + spacing);
-        }
+        float x = startX + col * (cardWidth + spacingX);
+        float y = startY + row * (cardHeight + spacingY);
 
         Rectangle cardBounds = {x, y, cardWidth, cardHeight};
 

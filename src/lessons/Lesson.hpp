@@ -124,4 +124,22 @@ public:
     void init() override;
 };
 
+/**
+ * @brief Lektion 5: Broadcasting und erweiterte Shapes
+ */
+class Lesson5_Broadcasting : public Lesson {
+public:
+    Lesson5_Broadcasting();
+    void init() override;
+};
+
+/**
+ * @brief Lektion 6: Neural Network Grundlagen
+ */
+class Lesson6_NeuralNetworks : public Lesson {
+public:
+    Lesson6_NeuralNetworks();
+    void init() override;
+};
+
 } // namespace lessons
